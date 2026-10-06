@@ -1,26 +1,284 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #000f22;
+  --color-primary-container: #0a2540;
+  --color-primary-fixed: #d2e4ff;
+  --color-primary-fixed-dim: #b0c8eb;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #768dad;
+  --color-on-primary-fixed: #001c37;
+  --color-on-primary-fixed-variant: #314865;
+  --color-inverse-primary: #b0c8eb;
+
+  --color-secondary: #0264f6;
+  --color-secondary-container: #176afc;
+  --color-secondary-fixed: #dae2ff;
+  --color-secondary-fixed-dim: #b2c5ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fefcff;
+  --color-on-secondary-fixed: #001848;
+  --color-on-secondary-fixed-variant: #003fa3;
+
+  --color-tertiary: #00101a;
+  --color-tertiary-container: #002738;
+  --color-tertiary-fixed: #c4e7ff;
+  --color-tertiary-fixed-dim: #7bd0ff;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #0095c9;
+  --color-on-tertiary-fixed: #001e2c;
+  --color-on-tertiary-fixed-variant: #004c69;
+
+  --color-surface: #faf9f5;
+  --color-surface-bright: #faf9f5;
+  --color-surface-dim: #dbdad6;
+  --color-surface-variant: #e3e2df;
+  --color-surface-tint: #49607e;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f4f0;
+  --color-surface-container: #efeeea;
+  --color-surface-container-high: #e9e8e4;
+  --color-surface-container-highest: #e3e2df;
+  --color-inverse-surface: #2f312e;
+  --color-inverse-on-surface: #f2f1ed;
+
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #43474d;
+  --color-outline: #74777e;
+  --color-outline-variant: #c4c6ce;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter-sm: 1rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-margin: 3rem;
+
+  --font-inter: var(--font-inter), 'Inter', sans-serif;
+  --font-outfit: var(--font-outfit), 'Outfit', sans-serif;
+
+  --font-body-sm: var(--font-inter), 'Inter', sans-serif;
+  --font-body-md: var(--font-inter), 'Inter', sans-serif;
+  --font-body-lg: var(--font-inter), 'Inter', sans-serif;
+  --font-title-sm: var(--font-inter), 'Inter', sans-serif;
+  --font-title-md: var(--font-inter), 'Inter', sans-serif;
+  --font-label-caps: var(--font-inter), 'Inter', sans-serif;
+  --font-headline-sm: var(--font-outfit), 'Outfit', sans-serif;
+  --font-headline-md: var(--font-outfit), 'Outfit', sans-serif;
+  --font-headline-lg: var(--font-outfit), 'Outfit', sans-serif;
+  --font-headline-lg-mobile: var(--font-outfit), 'Outfit', sans-serif;
+  --font-price-hero: var(--font-outfit), 'Outfit', sans-serif;
+  --font-display: var(--font-outfit), 'Outfit', sans-serif;
+  --font-display-mobile: var(--font-outfit), 'Outfit', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    background-color: var(--color-surface, #faf9f5);
+    color: var(--color-on-surface, #1b1c1a);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Material Symbols configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+/* Typography Utility Classes */
+.text-body-sm {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.text-body-md {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.text-body-lg {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.text-title-sm {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.text-title-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.text-headline-sm {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-headline-lg {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.text-headline-lg-mobile {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.text-price-hero {
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-label-caps {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.text-label-md,
+.font-label-md {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.px-margin {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .px-margin {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .px-margin {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.p-space-xs { padding: 0.375rem; }
+.p-space-sm { padding: 0.75rem; }
+.p-space-md { padding: 1.25rem; }
+.p-space-lg { padding: 2rem; }
+
+.py-space-xs { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.py-space-sm { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-space-md { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+.py-space-xl { padding-top: 3rem; padding-bottom: 3rem; }
+
+.pt-space-xs { padding-top: 0.375rem; }
+.pt-space-sm { padding-top: 0.75rem; }
+.pt-space-md { padding-top: 1.25rem; }
+.pt-space-xl { padding-top: 3rem; }
+
+.pb-space-xs { padding-bottom: 0.375rem; }
+.pb-space-sm { padding-bottom: 0.75rem; }
+.pb-space-md { padding-bottom: 1.25rem; }
+.pb-space-lg { padding-bottom: 2rem; }
+.pb-space-xl { padding-bottom: 3rem; }
+
+.mb-space-xs { margin-bottom: 0.375rem; }
+.mb-space-sm { margin-bottom: 0.75rem; }
+.mb-space-md { margin-bottom: 1.25rem; }
+.mb-space-lg { margin-bottom: 2rem; }
+.mb-space-xl { margin-bottom: 3rem; }
+
+.my-space-xs { margin-top: 0.375rem; margin-bottom: 0.375rem; }
+
+.gap-space-xs { gap: 0.375rem; }
+.gap-space-sm { gap: 0.75rem; }
+.gap-space-md { gap: 1.25rem; }
+.gap-space-lg { gap: 2rem; }
+.gap-space-xl { gap: 3rem; }
+
+.space-y-space-xs > :not([hidden]) ~ :not([hidden]) { margin-top: 0.375rem; }
+.space-y-space-sm > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+.space-y-space-md > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+.space-y-space-lg > :not([hidden]) ~ :not([hidden]) { margin-top: 2rem; }
+
+.text-display {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.text-display-mobile {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Brand overrides matching user template */
+.bg-secondary,
+button.bg-secondary,
+a.bg-secondary {
+  background-color: #0264f6 !important;
+}
+
+.text-secondary,
+a.text-secondary,
+span.text-secondary {
+  color: #0264f6 !important;
+}
+
+.border-secondary {
+  border-color: #0264f6 !important;
+}
+
+.hover\:bg-secondary:hover {
+  background-color: #0264f6 !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
