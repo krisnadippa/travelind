@@ -15,9 +15,13 @@ travelind/
 │   ├── booking/
 │   │   └── page.tsx             # Halaman Formulir Reservasi & Data Tamu Langsung (/booking)
 │   ├── rental/
-│   │   └── page.tsx             # Halaman Katalog Rental Mobil & Motor Bali (/rental)
+│   │   ├── page.tsx             # Halaman Katalog Rental Mobil & Motor Bali (/rental)
+│   │   └── [id]/
+│   │       └── page.tsx         # Halaman Detail Spesifikasi & Booking Unit (/rental/[id])
 │   ├── rental-mobil/
-│   │   └── page.tsx             # Alias rute (/rental-mobil)
+│   │   ├── page.tsx             # Alias rute (/rental-mobil)
+│   │   └── [id]/
+│   │       └── page.tsx         # Alias rute detail (/rental-mobil/[id])
 │   ├── villas/
 │   │   ├── page.tsx             # Halaman Katalog & Listing Villa Terkurasi (/villas)
 │   │   └── [id]/
@@ -38,6 +42,19 @@ travelind/
 │   │   ├── RentalPagination.tsx     # Paginasi Halaman Armada
 │   │   ├── RentalWhatsAppSupport.tsx# Banner Dispatcher 24/7 Bandara DPS
 │   │   └── RentalBookingModal.tsx   # Modal Formulir Pemesanan Cepat & Integrasi WhatsApp
+│   ├── rental-detail/
+│   │   ├── VehicleDetailClient.tsx  # Client Orchestrator detail kendaraan & sinkronisasi booking
+│   │   ├── VehicleBreadcrumbs.tsx   # Breadcrumbs navigasi detail kendaraan & badge resmi
+│   │   ├── VehicleHeaderBar.tsx     # Judul, badge Modelista 2024, rating, tombol Share & Wishlist
+│   │   ├── VehicleGalleryShowcase.tsx # Galeri modern 5 foto + Lightbox Modal Viewer
+│   │   ├── VehicleKeyFeatures.tsx   # 4 Kartu keunggulan (Hybrid irit, Captain seat, TSS 3.0, steril)
+│   │   ├── VehicleTechSpecs.tsx     # Tabel spesifikasi mesin, transmisi, kapasitas koper & sunroof
+│   │   ├── VehicleFacilities.tsx    # 6 Fasilitas gratis (Antar bandara, asuransi, ERA 24 jam, dll)
+│   │   ├── VehicleRentalTerms.tsx   # 4 Syarat sewa lepas kunci wisatawan (KTP/Paspor, SIM A, tiket)
+│   │   ├── VehicleCoverageMap.tsx   # Area pengantaran gratis & peta interaktif hub Bandara DPS
+│   │   ├── VehicleReviews.tsx       # Ulasan wisatawan bintang 5 terverifikasi
+│   │   ├── VehicleBookingWidget.tsx # Widget booking sticky dengan kalkulator dinamis & diskon early bird
+│   │   └── VehicleMobileBottomBar.tsx # Bar floating CTA bawah untuk perangkat mobile
 │   ├── booking/
 │   │   ├── BookingPageClient.tsx    # Client Orchestrator untuk data tamu & kalkulasi harga dinamis
 │   │   ├── BookingStepperHeader.tsx # Stepper Bar 4 Langkah & Nomor Reservasi #TVL-VIL-2026-8891

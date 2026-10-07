@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { RentalVehicle } from "@/data/rentalVehicles";
 
 interface RentalVehicleCardProps {
@@ -79,7 +80,12 @@ export default function RentalVehicleCard({
             </div>
 
             <h2 className="font-headline-lg text-body-md text-on-surface font-bold leading-snug">
-              {vehicle.name}
+              <Link
+                href={`/rental/${vehicle.id}`}
+                className="hover:text-primary transition-colors"
+              >
+                {vehicle.name}
+              </Link>
             </h2>
 
             {/* Feature Specs Pills */}
@@ -187,7 +193,12 @@ export default function RentalVehicleCard({
           </div>
 
           <h2 className="font-headline-lg text-label-md text-on-surface font-bold leading-snug">
-            {vehicle.name}
+            <Link
+              href={`/rental/${vehicle.id}`}
+              className="hover:text-primary transition-colors"
+            >
+              {vehicle.name}
+            </Link>
           </h2>
 
           {/* Feature Specs Pills */}
